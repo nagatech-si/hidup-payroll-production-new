@@ -1,6 +1,10 @@
 Options -Indexes
 RewriteEngine On
 RewriteBase /
+
+# Allow access to the icons folder
+RewriteCond %{REQUEST_URI} !^/icons/
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.html [QSA,L]
