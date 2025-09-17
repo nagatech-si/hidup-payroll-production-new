@@ -3,29 +3,29 @@ name: Deploy
 on:
   push:
     branches:
-      - '**'
+      - ucloud
 
 jobs:
   deploy:
-  runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X64]
 
     steps:
-      - name: Checkout code
+      - name: Checkout kode
         uses: actions/checkout@v4
 
       - name: Update qc-payroll.goldstore.id
         run: |
           cd /var/www/html/qc/qc-payroll.goldstore.id
-          git fetch origin "$GITHUB_REF_NAME"
-          git reset --hard origin/"$GITHUB_REF_NAME"
-          git pull origin "$GITHUB_REF_NAME"
-
+          git fetch origin main
+          git reset --hard origin/main
+          git pull origin main
+     
       - name: Update qc-payroll-cabang.goldstore.id
         run: |
           cd /var/www/html/qc/qc-payroll-cabang.goldstore.id
-          git fetch origin "$GITHUB_REF_NAME"
-          git reset --hard origin/"$GITHUB_REF_NAME"
-          git pull origin "$GITHUB_REF_NAME"
+          git fetch origin main
+          git reset --hard origin/main
+          git pull origin main
 
       - name: Build Selesai
         run: echo "✅ Build berhasil!"
