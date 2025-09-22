@@ -14,22 +14,24 @@ jobs:
     runs-on: [self-hosted, Linux, X64]
 
     steps:
-      - name: Checkout kode
-        uses: actions/checkout@v4
+        - name: Build Selesai
+         run: echo "✅ Build berhasil!"
+      # - name: Checkout kode
+      #   uses: actions/checkout@v4
 
-      - name: Update qc-payroll.goldstore.id
-        run: |
-          cd /var/www/html/qc/qc-payroll.goldstore.id
-          git fetch origin main
-          git reset --hard origin/main
-          git pull origin main
+      # - name: Update qc-payroll.goldstore.id
+      #   run: |
+      #     cd /var/www/html/qc/qc-payroll.goldstore.id
+      #     git fetch origin main
+      #     git reset --hard origin/main
+      #     git pull origin main
      
-      - name: Update qc-payroll-cabang.goldstore.id
-        run: |
-          cd /var/www/html/qc/qc-payroll-cabang.goldstore.id
-          git fetch origin main
-          git reset --hard origin/main
-          git pull origin main
+      # - name: Update qc-payroll-cabang.goldstore.id
+      #   run: |
+      #     cd /var/www/html/qc/qc-payroll-cabang.goldstore.id
+      #     git fetch origin main
+      #     git reset --hard origin/main
+      #     git pull origin main
 
-      - name: Build Selesai
-        run: echo "✅ Build berhasil!"
+      # - name: Build Selesai
+      #   run: echo "✅ Build berhasil!"
