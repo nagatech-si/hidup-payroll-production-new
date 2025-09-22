@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: self-hosted   # atau pakai list YAML kalau mau semua label
 
     steps:
       - name: Checkout kode
