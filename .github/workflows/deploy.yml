@@ -3,8 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-       - main
-       - development
+      - main
 
 jobs:
   deploy:
@@ -14,13 +13,6 @@ jobs:
       - name: Checkout kode
         uses: actions/checkout@v4
 
-      - name: Update qc-payroll.goldstore.id
-        run: |
-          cd /var/www/html/qc/qc-payroll.goldstore.id
-          git fetch origin main
-          git reset --hard origin/main
-          git pull origin main
-     
       - name: Update qc-payroll-cabang.goldstore.id
         run: |
           cd /var/www/html/qc/qc-payroll-cabang.goldstore.id
