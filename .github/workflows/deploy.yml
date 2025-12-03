@@ -13,10 +13,17 @@ jobs:
       - name: Checkout kode
         uses: actions/checkout@v4
 
-      - name: Update Qc Payroll
+      - name: Update Pusat Payroll
         if: ${{ github.ref_name == 'development' }}
         run: |
           cd /var/www/html/qc/qc-payroll.goldstore.id
+          git fetch origin ${{ github.ref_name }}
+          git reset --hard origin/${{ github.ref_name }}
+
+      - name: Update Cabang Payroll
+        if: ${{ github.ref_name == 'development' }}
+        run: |
+          cd /var/www/html/qc/qc-payroll-cabang.goldstore.id
           git fetch origin ${{ github.ref_name }}
           git reset --hard origin/${{ github.ref_name }}
 
