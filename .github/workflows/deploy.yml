@@ -28,4 +28,4 @@ jobs:
           git reset --hard origin/${{ github.ref_name }}
 
       - name: Build Selesai
-        run: echo "✅ Build berhasil!"
+        run: echo "✅ Build berhasil Di Update!"
