@@ -7,18 +7,18 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted   
+    runs-on: self-hosted
 
     steps:
       - name: Checkout kode
         uses: actions/checkout@v4
 
-      - name: Update qc-payroll-cabang.goldstore.id
+      - name: Update Qc Payroll
+        if: ${{ github.ref_name == 'development' }}
         run: |
-          cd /var/www/html/qc/qc-payroll-cabang.goldstore.id
-          git fetch origin main
-          git reset --hard origin/main
-          git pull origin main
+          cd /var/www/html/qc/qc-payroll.goldstore.id
+          git fetch origin ${{ github.ref_name }}
+          git reset --hard origin/${{ github.ref_name }}
 
       - name: Build Selesai
         run: echo "✅ Build berhasil!"
